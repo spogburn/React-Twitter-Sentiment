@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TwitterSelect from './TwitterSelect';
 import DateSelect from './DateSelect';
+import Results from './Results';
 import '../styles/css/App.css';
 
 class Layout extends Component {
@@ -11,6 +12,7 @@ class Layout extends Component {
         <h1>This is a layout</h1>
         <TwitterSelect/>
         <DateSelect/>
+        <Results results="Hello" />
       </div>
 
     )
