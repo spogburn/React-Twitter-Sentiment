@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/TwitterHandleActions';
+import * as TwitterActions from '../actions/TwitterHandleActions';
 import '../styles/css/App.css';
 import TextField from 'material-ui/TextField';
 
@@ -26,6 +26,7 @@ class TwitterSelect extends Component {
   handleBlur(event) {
     console.log('BLURRING', this.props)
     this.props.setTwitterHandle(this.state.userName);
+    this.props.validateHandle(this.state.userName);
   }
 
   render(){
@@ -37,14 +38,14 @@ class TwitterSelect extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     userName: state.userName
-//   }
-// }
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
+function mapStateToProps(state) {
+  return {
+    userName: state.userName
+  }
 }
 
-export default connect(undefined, mapDispatchToProps)(TwitterSelect);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({...TwitterActions}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TwitterSelect);

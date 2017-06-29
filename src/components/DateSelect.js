@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import DatePicker from 'material-ui/DatePicker';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as DateActions from '../actions/DateSetActions';
 import '../styles/css/App.css';
+
 
 class DateSelect extends Component {
   constructor(props) {
@@ -16,15 +20,18 @@ class DateSelect extends Component {
   }
 
   changeStartDate = (event, date) => {
+    console.log('this', this);
     this.setState({
       startDate: date,
     });
+    this.props.setStartDate(date);
   };
 
   changeEndDate = (event, date) => {
     this.setState({
       endDate: date,
     });
+    this.props.setEndDate(date);
   };
 
   disabledDates = (date) => {
@@ -52,4 +59,15 @@ class DateSelect extends Component {
   }
 }
 
-export default DateSelect;
+function mapStateToProps(state) {
+  return {
+    startDate: state.startDate,
+    endDate: state.endDate
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({...DateActions}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DateSelect);

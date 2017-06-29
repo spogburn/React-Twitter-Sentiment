@@ -3,8 +3,11 @@ import reducer from '../../reducers/TwitterHandle';
 
 describe('Twitter Reducer', function() {
   const initialState = {
-  userName: null
-  };
+  userName: null,
+  validating: false,
+  validated: false,
+  error: null
+}
 
   it('should return the initial state', function() {
     expect(reducer(undefined, {})).toEqual(initialState)
@@ -15,6 +18,12 @@ describe('Twitter Reducer', function() {
       type: "SET_USERNAME",
       userName: 'spogburn'
     }
-    expect(reducer(initialState, action)).toEqual({userName: 'spogburn'})
+    const expectedState = {
+      userName: 'spogburn',
+      validating: false,
+      validated: false,
+      error: null
+    }
+    expect(reducer(initialState, action)).toEqual(expectedState)
   })
 })

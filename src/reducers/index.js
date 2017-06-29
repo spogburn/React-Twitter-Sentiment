@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import TwitterHandle from './TwitterHandle';
+import DateSetter from './DateSet';
 
 const appReducer = combineReducers({
-  TwitterHandle
+  TwitterHandle,
+  DateSetter
 });
 
 const rootReducer = (state, action) => {
