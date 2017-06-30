@@ -1,15 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as TwitterActions from '../actions/TwitterHandleActions';
 import '../styles/css/App.css';
 import TextField from 'material-ui/TextField';
+
+import * as TwitterActions from '../actions/TwitterHandleActions';
 
 class TwitterSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userName: '',
+      validating: false,
+      validated: false,
+      error: null,
+      tweets: null
     };
     this.handleChange = this.handleChange.bind(this);
 
@@ -19,12 +24,11 @@ class TwitterSelect extends Component {
 
   handleChange(event) {
     this.setState({
-      userName: event.target.value
+      userName: event.target.value,
     });
   }
 
   handleBlur(event) {
-    console.log('BLURRING', this.props)
     this.props.setTwitterHandle(this.state.userName);
     this.props.validateHandle(this.state.userName);
   }
@@ -32,16 +36,25 @@ class TwitterSelect extends Component {
   render(){
     return (
       <div>
-        <TextField value={this.state.userName} onBlur={this.handleBlur} onChange={this.handleChange} hintText="Twitter user" />
+          <TextField value={this.state.userName} onBlur={this.handleBlur} onChange={this.handleChange} errorText={this.props.error ? this.props.error : null}
+            hintText="someTwitterHandle"
+          />
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
+  console.log('mapping')
+  console.log('state', state)
+  const { userName, tweets, validating, validated, error } = state.TwitterHandle;
   return {
-    userName: state.userName
-  }
+    userName: userName,
+    validating: validating,
+    validated: validated,
+    error: error,
+    tweets: tweets
+  };
 }
 
 function mapDispatchToProps(dispatch) {

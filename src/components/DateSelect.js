@@ -9,13 +9,13 @@ import '../styles/css/App.css';
 class DateSelect extends Component {
   constructor(props) {
     super(props);
-    const startDate = new Date(new Date().setDate(new Date().getDate()-7)) // sets the date to 7 days befor current date
+    const startDate = new Date(new Date().setDate(new Date().getDate()-7)); // sets the date to 7 days befor current date
     const endDate = new Date();
 
     this.state = {
       startDate,
-      endDate
-    }
+      endDate,
+    };
 
   }
 
@@ -55,15 +55,15 @@ class DateSelect extends Component {
         />
       </div>
 
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
     startDate: state.startDate,
-    endDate: state.endDate
-  }
+    endDate: state.endDate,
+  };
 }
 
 function mapDispatchToProps(dispatch) {

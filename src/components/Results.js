@@ -10,9 +10,9 @@ const Results = ({results}) => {
       <RaisedButton label="Analyze" primary={true}/>
       <div>{results}</div>
     </div>
-  )
+  );
 
-}
+};
 
 export default Results;
 

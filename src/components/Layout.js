@@ -16,7 +16,7 @@ class Layout extends Component {
         <Results results="Results here" />
       </div>
 
-    )
+    );
   }
 
 }
