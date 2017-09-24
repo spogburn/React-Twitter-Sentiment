@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import '../styles/css/App.css';
 import TextField from 'material-ui/TextField';
 
+import '../styles/css/App.css';
 import * as TwitterActions from '../actions/TwitterHandleActions';
 
 class TwitterSelect extends Component {
@@ -16,12 +16,11 @@ class TwitterSelect extends Component {
       error: null,
       tweets: null
     };
+
     this.handleChange = this.handleChange.bind(this);
-
     this.handleBlur = this.handleBlur.bind(this);
-
   }
-
+;
   handleChange(event) {
     this.setState({
       userName: event.target.value,
@@ -45,15 +44,13 @@ class TwitterSelect extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('mapping')
-  console.log('state', state)
   const { userName, tweets, validating, validated, error } = state.TwitterHandle;
   return {
-    userName: userName,
-    validating: validating,
-    validated: validated,
-    error: error,
-    tweets: tweets
+    userName,
+    validating,
+    validated,
+    error,
+    tweets,
   };
 }
 

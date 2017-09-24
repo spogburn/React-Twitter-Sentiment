@@ -17,13 +17,11 @@ export default function TwitterHandle(state=initialState, action) {
       return {...state, validating: true};
     }
     case 'VALIDATE_HANDLE_FAILURE': {
-      console.log('failure', action.error);
       const error = "Twitter handle not found or unavailable";
       return {...state, validating: false, error };
     }
     case 'VALIDATE_HANDLE_SUCCESS': {
       const tweets = action.response;
-      console.log('success!', action.response);
       return {
         ...state,
         validating: false,

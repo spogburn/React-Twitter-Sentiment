@@ -28,7 +28,8 @@ export function setTwitterHandle(userName) {
 }
 
 export function validateHandle(userName) {
-  const apiCall = axios.get(`http://localhost:3000/validate_user/${userName}`);
+  const apiCall = axios.get(`https://twitter-sentiment-graph.herokuapp.com/validate_user/${userName}`)
+  // const apiCall = axios.get(`http://localhost:3000/validate_user/${userName}`);
   return dispatch => {
     dispatch(validateHandleRequest());
     return apiCall
