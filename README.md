@@ -23,7 +23,7 @@ That code is in [this repo](https://github.com/spogburn/Twitter-Sentiment-Backen
 
  - Improve the data visualization. Currently there is a scatter plot that is not super awesome.
 Maybe a pie chart better displays this type of data?
-- Add more customization for the viewer to search by hashtag in lieu of username, and other customizable fields
+- Add more customization for the viewer to search by hashtag in lieu of username, and other customizable fields, such as number of tweets, etc.
 
 
 ## Other - Create React App default Readme below

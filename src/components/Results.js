@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as ResultsActions from '../actions/ResultsActions';
 
 import '../styles/css/App.css';
 
@@ -19,9 +16,9 @@ const Results = ({data, userName}) => {
 
   return (
     <div>
-      <h1>
+      <h2>
       Sentiment Analysis of recent Tweets from @{userName}
-      </h1>
+      </h2>
        <VictoryChart
        domain={{ x: [0, 50], y: [-1, 1] }}
        >
@@ -30,7 +27,7 @@ const Results = ({data, userName}) => {
           data={data}
           x={0}
           y="result"
-          containerComponent={<VictoryContainer height={200} width={'50%'}/>}
+          containerComponent={<VictoryContainer height={200} />}
         />
       </VictoryChart>
       <Table>
