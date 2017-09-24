@@ -3,8 +3,13 @@
 This project is an exercise in learning a few different things.
 - React
 - Sentiment Analysis
+- Material UI
 - [Twitter API](https://www.npmjs.com/package/twitter) and [Twitter docs](https://dev.twitter.com/rest/reference/get/statuses/user_timeline)
 - Data Visualization [Victory](https://github.com/FormidableLabs/victory)
+
+![Visualization Screenshot](https://github.com/spogburn/React-Twitter-Sentiment/blob/master/screenshots/sentiment_chart.png)
+![Table Screenshot](https://github.com/spogburn/React-Twitter-Sentiment/blob/master/screenshots/tweet_table.png)
+
 
 ## Running the project
 
