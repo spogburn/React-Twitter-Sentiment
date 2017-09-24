@@ -33,7 +33,9 @@ export function getSentiment(tweets) {
         // item is [ {response: value, confidence: value}, tweetString]
         let analyzed = {
           tweet: item[1],
-          result: emotionToNumber(item[0].result)
+          result: emotionToNumber(item[0].result),
+          emotion: item[0].result,
+          fill: getFillColor(emotionToNumber(item[0].result))
         };
         return analyzed;
       })
@@ -48,10 +50,20 @@ export function getSentiment(tweets) {
 function emotionToNumber(emotion) {
   let number = 0;
   if (emotion === 'Positive') {
-    number = 3;
+    number = 1;
   }
   if (emotion === 'Negative') {
-    number = -3
+    number = -1
   }
   return number;
+}
+
+function getFillColor(data) {
+  let color = '#585B56';
+  if (data > 0) {
+    color = '#AE5976';
+  } else if (data < 0) {
+    color = '#524D8D';
+  }
+  return color;
 }

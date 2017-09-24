@@ -25,7 +25,7 @@ class Analyze extends Component {
           disabled={this.props.tweets === null}
           primary={true}
         />
-        <Results data={this.props.analysis} />
+        {this.props.analysis ? <Results data={this.props.analysis} userName={this.props.userName} /> : null}
       </div>
     );
   }
@@ -34,9 +34,11 @@ class Analyze extends Component {
 function mapStateToProps(state) {
   const tweets = state.TwitterHandle.tweets;
   const analysis = state.Analyze.analysis;
+  const userName = state.TwitterHandle.userName;
   return {
     tweets,
-    analysis
+    analysis,
+    userName
   };
 }
 
