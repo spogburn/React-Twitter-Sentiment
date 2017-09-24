@@ -4,7 +4,7 @@ This project is an exercise in learning a few different things.
 - React
 - Sentiment Analysis
 - [Twitter API](https://www.npmjs.com/package/twitter) and [Twitter docs](https://dev.twitter.com/rest/reference/get/statuses/user_timeline)
-- Data Visualization [Victory](https://github.com/FormidableLabs/victory()
+- Data Visualization [Victory](https://github.com/FormidableLabs/victory)
 
 ## Running the project
 
@@ -13,6 +13,12 @@ Fork and clone, and then run `npm start` to get the project running
 Currently it runs agains a backend deployed on heroku to get the Twitter data, because CORS
 
 That code is in [this repo](https://github.com/spogburn/Twitter-Sentiment-Backend)
+
+## Longer term goals
+
+ - Improve the data visualization. Currently there is a scatter plot that is not super awesome.
+Maybe a pie chart better displays this type of data?
+- Add more customization for the viewer to search by hashtag in lieu of username, and other customizable fields
 
 
 ## Other - Create React App default Readme below
