@@ -5,11 +5,19 @@ import * as ResultsActions from '../actions/ResultsActions';
 
 import '../styles/css/App.css';
 
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 import { VictoryChart, VictoryScatter } from 'victory';
 
-const Results = ({data}) => {
 const Results = ({data, userName}) => {
   console.log("data", data);
+  console.log('twitterHandle', userName)
 
   return (
     <div>
@@ -26,6 +34,30 @@ const Results = ({data, userName}) => {
           y="result"
         />
       </VictoryChart>
+      <Table>
+        <TableHeader adjustForCheckbox={false} displaySelectAll={false} >
+            <TableRow>
+                <TableHeaderColumn width={'75%'}>Tweet</TableHeaderColumn>
+                <TableHeaderColumn>Sentiment</TableHeaderColumn>
+            </TableRow>
+        </TableHeader>
+        <TableBody displayRowCheckbox={false}>
+        {
+          data.map((item, i) => {
+          const {tweet, emotion } = item;
+            return (
+              <TableRow key={i} striped={true} >
+                <TableRowColumn  width={'75%'} style={{
+                      whiteSpace: "normal",
+                      wordWrap: "break-word"
+                    }}>{tweet}</TableRowColumn>
+                <TableRowColumn>{emotion}</TableRowColumn>
+              </TableRow>
+              )
+          })
+        }
+        </TableBody>
+    </Table>
     </div>
   );
 };
