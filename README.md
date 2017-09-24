@@ -1,3 +1,22 @@
+## Twitter Sentiment Analysis
+
+This project is an exercise in learning a few different things.
+- React
+- Sentiment Analysis
+- [Twitter API](https://www.npmjs.com/package/twitter) and [Twitter docs](https://dev.twitter.com/rest/reference/get/statuses/user_timeline)
+- Data Visualization [Victory](https://github.com/FormidableLabs/victory()
+
+## Running the project
+
+Fork and clone, and then run `npm start` to get the project running
+
+Currently it runs agains a backend deployed on heroku to get the Twitter data, because CORS
+
+That code is in [this repo](https://github.com/spogburn/Twitter-Sentiment-Backend)
+
+
+## Other - Create React App default Readme below
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
