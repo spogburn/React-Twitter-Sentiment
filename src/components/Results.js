@@ -13,15 +13,13 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import { VictoryChart, VictoryScatter } from 'victory';
+import { VictoryChart, VictoryScatter, VictoryContainer } from 'victory';
 
 const Results = ({data, userName}) => {
-  console.log("data", data);
-  console.log('twitterHandle', userName)
 
   return (
     <div>
-      <h1 style={{'margin-bottom': "10%"}}>
+      <h1>
       Sentiment Analysis of recent Tweets from @{userName}
       </h1>
        <VictoryChart
@@ -32,6 +30,7 @@ const Results = ({data, userName}) => {
           data={data}
           x={0}
           y="result"
+          containerComponent={<VictoryContainer height={200} width={'50%'}/>}
         />
       </VictoryChart>
       <Table>
