@@ -7,3 +7,14 @@ body {
   padding: 5%;
 }
 
+tr.positive {
+  color: #18A97C !important;
+}
+
+tr.negative {
+  color: #AE0465 !important;
+}
+
+tr.neutral {
+  color: #7E7B85!important;
+}
