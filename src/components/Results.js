@@ -53,7 +53,6 @@ const Results = ({data, userName}) => {
         />
         <VictoryAxis
           dependentAxis
-          // tickFormat specifies how ticks should be displayed
           tickValues={[-1, 0, 1]}
         />
       </VictoryChart>
@@ -67,9 +66,9 @@ const Results = ({data, userName}) => {
         <TableBody displayRowCheckbox={false}>
         {
           data.map((item, i) => {
-          const {tweet, emotion } = item;
+          const {tweet, emotion, result } = item;
             return (
-              <TableRow key={i} striped={true} >
+              <TableRow key={i} className={result === 1 ? "positive" : result === -1 ? "negative" : "neutral"} >
                 <TableRowColumn  width={'75%'} style={{
                       whiteSpace: "normal",
                       wordWrap: "break-word"
