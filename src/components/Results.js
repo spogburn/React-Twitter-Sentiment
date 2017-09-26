@@ -10,9 +10,31 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import { VictoryChart, VictoryScatter, VictoryContainer } from 'victory';
+import { VictoryChart, VictoryScatter, VictoryContainer, VictoryAxis } from 'victory';
 
 const Results = ({data, userName}) => {
+  console.log('data', data);
+  const dataForPie = transformDataForPie(data);
+  console.log('dataForPie', dataForPie);
+  function transformDataForPie(tweets) {
+  let positive = 0;
+  let negative = 0;
+  let neutral = 0;
+  tweets.forEach(function(tweet){
+    if (tweet.result === 0) {
+      neutral++;
+    } else if (tweet.result === 1) {
+      positive++;
+    } else {
+      negative++;
+    }
+  })
+   return  [
+            {x: 'positive', y: positive, label: 'positive'},
+            {x: 'negative', y: negative, label:'negative'},
+            {x: 'neutral', y: neutral, label: 'neutral'}
+            ];
+  }
 
   return (
     <div>
