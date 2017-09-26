@@ -39,7 +39,7 @@ const Results = ({data, userName}) => {
   return (
     <div>
       <h2>
-      Sentiment Analysis of recent Tweets from @{userName}
+      Sentiment Analysis of recent Tweets from {userName}
       </h2>
        <VictoryChart
        domain={{ x: [0, 50], y: [-1, 1] }}
@@ -50,6 +50,11 @@ const Results = ({data, userName}) => {
           x={0}
           y="result"
           containerComponent={<VictoryContainer height={200} />}
+        />
+        <VictoryAxis
+          dependentAxis
+          // tickFormat specifies how ticks should be displayed
+          tickValues={[-1, 0, 1]}
         />
       </VictoryChart>
       <Table>
