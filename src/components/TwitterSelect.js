@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TextField from 'material-ui/TextField';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import '../styles/css/App.css';
 import * as TwitterActions from '../actions/TwitterHandleActions';
@@ -32,12 +33,14 @@ class TwitterSelect extends Component {
     this.props.validateHandle(this.state.userName);
   }
 
+
   render(){
     return (
       <div>
           <TextField value={this.state.userName} onBlur={this.handleBlur} onChange={this.handleChange} errorText={this.props.error ? this.props.error : null}
             hintText="someTwitterHandle"
           />
+          {this.props.validating ? <CircularProgress size={20}/> : null}
       </div>
     );
   }
