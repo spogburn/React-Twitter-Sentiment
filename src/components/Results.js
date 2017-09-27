@@ -13,9 +13,7 @@ import {
 import { VictoryChart, VictoryScatter, VictoryContainer, VictoryAxis } from 'victory';
 
 const Results = ({data, userName}) => {
-  console.log('data', data);
   const dataForPie = transformDataForPie(data);
-  console.log('dataForPie', dataForPie);
   function transformDataForPie(tweets) {
   let positive = 0;
   let negative = 0;
@@ -68,7 +66,7 @@ const Results = ({data, userName}) => {
           data.map((item, i) => {
           const {tweet, emotion, result } = item;
             return (
-              <TableRow key={i} className={result === 1 ? "positive" : result === -1 ? "negative" : "neutral"} >
+              <TableRow key={tweet} className={result === 1 ? "positive" : result === -1 ? "negative" : "neutral"}>
                 <TableRowColumn  width={'75%'} style={{
                       whiteSpace: "normal",
                       wordWrap: "break-word"

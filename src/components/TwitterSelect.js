@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import CircularProgress from 'material-ui/CircularProgress';
+import Results from './Results';
 
 import '../styles/css/App.css';
+// import * as AnalyzeActions from '../actions/AnalyzeActions';
 import * as TwitterActions from '../actions/TwitterHandleActions';
 
 class TwitterSelect extends Component {
@@ -15,11 +18,13 @@ class TwitterSelect extends Component {
       validating: false,
       validated: false,
       error: null,
-      tweets: null
+      tweets: null,
+      analysis: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 ;
   handleChange(event) {
@@ -29,10 +34,15 @@ class TwitterSelect extends Component {
   }
 
   handleBlur(event) {
+    console.log('blurring');
     this.props.setTwitterHandle(this.state.userName);
-    this.props.validateHandle(this.state.userName);
+    this.props.getTweets(this.state.userName);
   }
 
+  handleClick() {
+    this.props.getTweetsAndSentiment(this.state.userName)
+    // this.props.clearForm()
+  }
 
   render(){
     return (
@@ -41,6 +51,15 @@ class TwitterSelect extends Component {
             hintText="someTwitterHandle"
           />
           {this.props.validating ? <CircularProgress size={20}/> : null}
+          <div>
+            <RaisedButton
+            label="Analyze"
+            onClick={this.handleClick}
+            disabled={ this.props.tweets === null }
+            primary={true}
+          />
+          {this.props.analysis ? <Results data={this.props.analysis} userName={this.props.userName} /> : null}
+        </div>
       </div>
     );
   }
@@ -48,12 +67,15 @@ class TwitterSelect extends Component {
 
 function mapStateToProps(state) {
   const { userName, tweets, validating, validated, error } = state.TwitterHandle;
+  const analysis = state.Analyze.analysis;
+
   return {
     userName,
     validating,
     validated,
     error,
     tweets,
+    analysis
   };
 }
 

@@ -17,6 +17,7 @@ class Analyze extends Component {
   }
 
   render() {
+    console.log("TWEETS", this.props.tweets);
     return (
       <div>
         <RaisedButton

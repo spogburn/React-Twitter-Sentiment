@@ -4,21 +4,21 @@ const initialState = {
   validated: false,
   error: null,
   tweets: null,
+  analysis: null
 };
 
 export default function TwitterHandle(state=initialState, action) {
   switch (action.type) {
     case 'SET_USERNAME': {
-      console.log('setting username');
+      console.log('setting username', action.userName);
       return {...state, userName: action.userName};
     }
     case 'VALIDATE_HANDLE_REQUEST': {
-      console.log('being validated');
       return {...state, validating: true};
     }
     case 'VALIDATE_HANDLE_FAILURE': {
       const error = "Twitter handle not found or unavailable";
-      return {...state, validating: false, error };
+      return {...state, validating: false, validated: false, error };
     }
     case 'VALIDATE_HANDLE_SUCCESS': {
       const tweets = action.response;
@@ -35,3 +35,4 @@ export default function TwitterHandle(state=initialState, action) {
     }
   }
 }
+
