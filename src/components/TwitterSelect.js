@@ -34,14 +34,12 @@ class TwitterSelect extends Component {
   }
 
   handleBlur(event) {
-    console.log('blurring');
     this.props.setTwitterHandle(this.state.userName);
     this.props.getTweets(this.state.userName);
   }
 
   handleClick() {
     this.props.getTweetsAndSentiment(this.state.userName)
-    // this.props.clearForm()
   }
 
   render(){

@@ -10,7 +10,6 @@ const initialState = {
 export default function TwitterHandle(state=initialState, action) {
   switch (action.type) {
     case 'SET_USERNAME': {
-      console.log('setting username', action.userName);
       return {...state, userName: action.userName};
     }
     case 'VALIDATE_HANDLE_REQUEST': {

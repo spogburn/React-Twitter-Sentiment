@@ -1,5 +1,8 @@
 const initialState = {
-  analysis: null
+  analysis: null,
+  sentimentRequestSuccess: false,
+  requestingSentiment: false,
+  error: null,
 };
 
 export default function Results(state=initialState, action) {
@@ -9,7 +12,7 @@ export default function Results(state=initialState, action) {
     }
     case 'SENTIMENT_REQUEST_FAILURE': {
       const error = "There was a failure analyzing these tweets";
-      return {...state, sentimentRequestSuccess: false, error };
+      return {...state, error };
     }
     case 'SENTIMENT_REQUEST_SUCCESS': {
       const analysis = action.response;

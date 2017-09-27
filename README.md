@@ -21,6 +21,7 @@ That code is in [this repo](https://github.com/spogburn/Twitter-Sentiment-Backen
 
 ## Longer term goals
 
+ - Implement a better language processing API. Watson was ruled out due to cost. Google's might be a better choice but required more initial setup.
  - Improve the data visualization. Currently there is a scatter plot that is not super awesome.
 Maybe a pie chart better displays this type of data?
 - Add more customization for the viewer to search by hashtag in lieu of username, and other customizable fields, such as number of tweets, etc.
